@@ -1,0 +1,206 @@
+<root>
+    <Tuesday>
+        <item>
+            <time>
+                08:10-09:40
+            </time>
+            <subject>
+                Алгебра и алгоритмы (практика)
+            </subject>
+            <address>
+                Zoom
+            </address>
+            <teacher>
+                Воробьев Владимир Сергеевич
+            </teacher>
+            <group>
+                АлгА 2.3
+            </group>
+            <format>
+                онлайн
+            </format>
+        </item>
+        <item>
+            <time>
+                09:50-11:20
+            </time>
+            <subject>
+                Математический анализ
+            </subject>
+            <address>
+                Ауд. 1405, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Попов Антон Игоревич
+            </teacher>
+            <group>
+                МатАн 1
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                11:30-13:00
+            </time>
+            <subject>
+                Математический анализ (практика)
+            </subject>
+            <address>
+                Ауд. 1410, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Козачёк Ольга Андреевна
+            </teacher>
+            <group>
+                МатАн 1.1
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                13:30-15:00
+            </time>
+            <subject>
+                Алгебра и алгоритмы
+            </subject>
+            <address>
+                Ауд. 1405, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Попов Антон Игоревич
+            </teacher>
+            <group>
+                АлгА 2
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                17:00-19:00
+            </time>
+            <subject>
+                Гонки дронов
+            </subject>
+            <address>
+                Ауд. 4501, ул.Ломоносова, д.9, лит. Б
+            </address>
+            <teacher>
+                Шамрай Павел Юрьевич
+            </teacher>
+            <group>
+                B
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                18:00-20:00
+            </time>
+            <subject>
+                Гонки дронов
+            </subject>
+            <address>
+                Ауд. 4501, ул.Ломоносова, д.9, лит. Б
+            </address>
+            <teacher>
+                Шамрай Павел Юрьевич
+            </teacher>
+            <group>
+                B
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+    </Tuesday>
+    <Thursday>
+        <item>
+            <time>
+                08:10-09:40
+            </time>
+            <subject>
+                Информатика (Лаб)
+            </subject>
+            <address>
+                Ауд. 1328, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Миняев Илья Андреевич
+            </teacher>
+            <group>
+                ИНФОРМ (Р3111) 1.6
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                09:50-11:20
+            </time>
+            <subject>
+                Информатика (Лаб)
+            </subject>
+            <address>
+                Ауд. 1328, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Миняев Илья Андреевич
+            </teacher>
+            <group>
+                ИНФОРМ (Р3111) 1.6
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                09:50-11:20
+            </time>
+            <subject>
+                Социальная история (практика)
+            </subject>
+            <address>
+                Ауд. 2430, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Кудина Юлия Игоревна
+            </teacher>
+            <group>
+                ИРГ 2.2
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+        <item>
+            <time>
+                11:30-13:00
+            </time>
+            <subject>
+                Социальная история
+            </subject>
+            <address>
+                Ауд. 1404, Кронверкский пр., д.49, лит.А
+            </address>
+            <teacher>
+                Кузнецова А.А.
+            </teacher>
+            <group>
+                ИРГ 2
+            </group>
+            <format>
+                очная
+            </format>
+        </item>
+    </Thursday>
+</root>
