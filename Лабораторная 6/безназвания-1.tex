@@ -1,0 +1,302 @@
+\documentclass[paper=b5,pagesize]{scrartcl}
+
+
+% Русский, шрифты
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\linespread{0.89}
+
+% Формат страницы B5 + поля
+\usepackage{geometry}
+\geometry{
+  paperwidth=176mm,
+  paperheight=250mm,
+  top=20mm,
+  bottom=20mm,
+  left=16mm,
+  right=13mm,
+  columnsep=6mm
+}
+
+% Две колонки + перенос формул
+\usepackage{multicol}
+\usepackage{mathtools} % для переноса формул
+\usepackage{array} % для таблиц
+\raggedcolumns
+\setlength{\parskip}{0.15ex}
+\setlength{\premulticols}{0pt}
+\setlength{\postmulticols}{0pt}
+\setlength{\multicolsep}{1mm}
+
+% Разрешаем перенос длинных формул
+\allowdisplaybreaks
+
+% Колонтитулы
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\setlength{\headheight}{22pt}
+\chead{\large\bfseries Ответы, указания, решения}
+\KOMAoptions{headsepline=0.4pt:0.92\textwidth}
+
+% УСТАНОВКА КОЛОНТИТУЛА:
+\ifoot*{\large \thepage} 
+
+% TikZ и математика
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+
+% Устанавливаем начальный номер страницы на 78
+\setcounter{page}{78} 
+
+\vspace*{-1mm}
+
+% ТЕКСТ ДВЕ КОЛОНКИ
+\begin{multicols}{2}
+\small
+
+\textbf{К статье «Объем тел вращения»}
+
+1. a) \(\dfrac{4}{3}\pi R^3\cos\theta\); б) \(2\pi^2 R^2 m\cos\theta\).
+
+2. \(4\pi R^3 (\pi + 4)\).
+
+\textbf{Указание.}
+Объем тела, полученного вращением цилиндра, равновелик сумме объемов тел, полученных вращением его проекций на плоскость \(\alpha\) и перпендикулярную ей плоскость, проходящую через \(l\).
+
+\textbf{К статье «Об одном геометрическом месте точек»}
+
+1. Взять \(A_1\), совпадающий с \(A\), \(B_1 = c - B\), \(C_1 = c - C\).
+
+2. Возьмите в качестве \(A,B,C\) центры окружностей; в качестве \(A_1,B_1,C_1\) — по одной из точек пересечения соответственно окружностей с центрами \(B\) и \(C\), \(A\) и \(C\), \(A\) и \(B\) и воспользуйтесь утверждением 3.
+
+3. Доказательство аналогично доказательству необходимости в утверждении 3.
+
+4. Обозначим стороны треугольника через \(a,b,c\). Каждая сторона делится точкой касания на две части, длины которых легко вычисляются. Далее легко проверить равенство (1) в статье.
+
+5. Если бы такая точка нашлась (обозначим её через \(M\)), то прямая \(MN\) была бы перпендикулярна всем сторонам треугольника \(ABC\).
+
+6. Пусть \(BD=x\), \(DC=y\), \(AD=z\), а сторона треугольника \(ABC\) равна \(a\). Если теперь \(A_2,B_2,C_2\) — точки касания соответствующих окружностей со сторонами \(BC\), \(AC\) и \(AB\), то отрезки \(BA_2,A_2C\) и т.д. легко вычисляются (в частности, \(BA_2=\frac{a+x-y}{2}\)).
+
+Обозначим через \(U,V,W\) радиусы окружностей, вписанных в треугольники \(BDC,ADC\) и \(ADB\). Теперь легко проверить справедливость равенства (1) в утверждении 3.
+
+7. Если \(A_1,A_2,A_3,A_4\) образуют выпуклый четырёхугольник, \(D\) — точка пересечения диагоналей, \(A_1D=m\), \(A_2D=p\), \(A_3D=n\), \(A_4D=q\), то для любой точки \(M\) плоскости будет постоянно выражение
+\[
+\begin{aligned}
+&\frac{n}{n+m}(A_1M)^2 - \frac{q}{q+p}(A_2M)^2 \\
+&+ \frac{m}{m+n}(A_3M)^2 - \frac{p}{q+p}(A_4M)^2.
+\end{aligned}
+\]
+
+8. Пусть \(AM_1 : BM_1 : CM_1 = p:q:r\). Тогда геометрическим местом точек \(M\) таких, что \((p^2-q^2)(AM)^2 + (p^2-r^2)(BM)^2 + (q^2-p^2)(CM)^2 = 0\), будет прямая, проходящая через \(M_1,M_2\) и центр описанного около \(ABC\) круга.
+
+\columnbreak
+
+9. Пусть \(O\) — центр окружности, вписанной в \(\triangle ABC\). Поскольку \(CM=CN\), то \(MN\perp OC\), аналогично \(PK\perp BO\). Следовательно, нужно доказать, что перпендикуляры, опущенные из \(N,P,A\) на \(OC,BO,BC\), пересекаются в одной точке. Для этого проверьте выполнение равенства (1).
+
+10. Поскольку площади треугольников \(ABM\) и \(CDM\) не меняются при движении отрезков \(AB\) и \(CD\) соответственно по прямым \(AB\) и \(CD\), то можно передвинуть эти отрезки вдоль соответствующих прямых так, что их концы совпадут с точкой пересечения прямых \(AB\) и \(CD\).
+
+Искомым геометрическим местом точек будет параллелограмм, диагонали которого лежат на прямых \(AB\) и \(CM\).
+
+11. Пусть \(ABCD\) — данный четырехугольник, \(P\) — середина \(AC\), \(Q\) — середина \(BD\), \(O\) — центр окружности. Проверьте, что
+\[
+\begin{aligned}
+S_{\triangle PAB} &+ S_{\triangle PCD} = S_{\triangle QAB} + S_{\triangle QCD} \\
+&= S_{\triangle OAB} + S_{\triangle OCD} = \frac12 S_{ABCD}.
+\end{aligned}
+\]
+
+\textbf{К статье «О графах с цветными рёбрами»}
+
+1. Пусть красное ребро означает, что два делегата могут объясниться на одном языке, а синее — что не могут. Если красного треугольника нет, то по свойству 2 должен быть треугольник с синими сторонами. Но это противоречит условию.
+
+2. Проведённому отрезку поставим в соответствие красное ребро, не проведённому — синее. Докажем, что в полном графе с девятью вершинами, каждая из которых принадлежит четырём красным рёбрам и четырём синим, найдётся треугольник с красными сторонами.
+
+% РИСУНОК
+\vspace{2mm}
+\begin{flushleft}
+% Чтобы ширина не превышала ширину колонки
+\begin{minipage}{\linewidth}
+
+% Чтобы рисунок влез в колонку по ширине
+\begin{tikzpicture}[scale=0.65]
+\draw[thin] (0,0) rectangle (10,6);
+
+\coordinate (A) at (5.5,4.6);
+\coordinate (B1) at (1.6,4.0);
+\coordinate (B2) at (1.0,3.0);
+\coordinate (B3) at (1.0,1.7);
+\coordinate (B4) at (1.8,0.9);
+\coordinate (C1) at (8.2,3.0);
+\coordinate (C2) at (7.8,2.0);
+\coordinate (C3) at (5.8,1.2);
+\coordinate (C4) at (7.6,3.9);
+
+\foreach \B in {B1,B2,B3,B4}
+  \draw[line width=1pt, red!80!black] (A) -- (\B);
+\foreach \C in {C1,C2,C3,C4}
+  \draw[line width=1pt, blue!70!black] (A) -- (\C);
+
+% СИНИЕ ЛИНИИ МЕЖДУ ТОЧКАМИ B
+\draw[line width=1pt, blue!70!black] (B1) -- (B2) -- (B3) -- (B4) -- (B2) -- (B1) -- (B3);
+
+\foreach \P in {A,B1,B2,B3,B4,C1,C2,C3,C4}
+  \fill (\P) circle (2pt);
+
+\node[above] at (A) {A};
+\node[left] at (B1) {B$_1$};
+\node[left] at (B2) {B$_2$};
+\node[left] at (B3) {B$_3$};
+\node[left] at (B4) {B$_4$};
+\node[right] at (C1) {C$_3$};
+\node[right] at (C2) {C$_2$};
+\node[right] at (C3) {C$_1$};
+\node[right] at (C4) {C$_4$};
+
+\end{tikzpicture}
+
+\vspace{1mm}
+{\small Рис. 1}
+
+\end{minipage}
+\end{flushleft}
+
+
+\end{multicols}
+
+
+% СТРАНИЦА С ТАБЛИЦАМИ
+% СТРАНИЦА С ТАБЛИЦАМИ
+\newpage
+\thispagestyle{empty}
+
+\small
+
+% ТАБЛИЦЫ 1 и 2 (
+\begin{center}
+% Таблица 1
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline
+$0\ldots 0$ & $l\ldots l$ \\
+$1\ldots 1$ & $l-1\ldots l-1$ \\
+$\vdots$ & $\vdots$ \\
+$l-1\ldots l-1$ & $1\ldots 1$ \\
+$l\ldots l$ & $0\ldots 0$ \\
+\hline
+\end{tabular}
+\par\vspace{2mm}
+$\underbrace{\hspace{2.4cm}}_{r\text{ столбцов}}$
+$\underbrace{\hspace{2.4cm}}_{r\text{ столбцов}}$
+\par\vspace{2mm}
+\textbf{Таблица 1.}
+\end{minipage}
+\hfill
+% Таблица 2
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+$0\ldots 0$ & $l\ldots l$ & $l+q$ \\
+$1\ldots 1$ & $l-1\ldots l-1$ & $l+q-1$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$l-1\ldots l-1$ & $1\ldots 1$ & $q+1$ \\
+$l\ldots l$ & $0\ldots 0$ & $q$ \\
+\hline
+\end{tabular}
+\par\vspace{2mm}
+% ПЕРВАЯ скобка (под "0...0")
+\makebox[0.2cm][c]{$\underbrace{\hspace{2.2cm}}_{r\text{ столбцов}}$}
+\hspace{2mm}  % отступ между скобками
+% ВТОРАЯ скобка (под "l...l") 
+\makebox[3.6cm][c]{$\underbrace{\hspace{2.2cm}}_{(r-1)\text{ столбец}}$}
+\par\vspace{2mm}
+\textbf{Таблица 2.}
+\end{minipage}
+\end{center}
+
+% ТАБЛИЦЫ 3, 4, 5 
+\begin{center}
+% Таблица 3
+\begin{minipage}[t]{0.32\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+$0$ & $l$ & $2l$ \\
+$2$ & $l-1$ & $2l-1$ \\
+$4$ & $l-2$ & $2l-2$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l$ & $0$ & $l$ \\
+\hline
+$1$ & $2l$ & $l-1$ \\
+$3$ & $2l-1$ & $l-2$ \\
+$5$ & $2l-2$ & $l-3$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l-1$ & $l+1$ & $0$ \\
+\hline
+\end{tabular}
+\par\vspace{2mm}
+\textbf{Таблица 3.}
+\end{minipage}
+\hfill
+% Таблица 4
+\begin{minipage}[t]{0.32\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+$0$ & $l$ & $2l+1$ \\
+$2$ & $l-1$ & $2l$ \\
+$4$ & $l-2$ & $2l-1$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l$ & $0$ & $l+1$ \\
+\hline
+$1$ & $2l$ & $l$ \\
+$3$ & $2l-1$ & $l-1$ \\
+$5$ & $2l-2$ & $l-2$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l-1$ & $l+1$ & $1$ \\
+\hline
+\end{tabular}
+\par\vspace{2mm}
+\textbf{Таблица 4.}
+\end{minipage}
+\hfill
+% Таблица 5
+\begin{minipage}[t]{0.32\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+$0$ & $l-1$ & $2l$ \\
+$2$ & $l-2$ & $2l-1$ \\
+$4$ & $l-3$ & $2l-2$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l-2$ & $0$ & $l+1$ \\
+\hline
+$1$ & $2l-1$ & $l-1$ \\
+$3$ & $2l-2$ & $l-2$ \\
+$5$ & $2l-3$ & $l-3$ \\
+$\vdots$ & $\vdots$ & $\vdots$ \\
+$2l-1$ & $l$ & $0$ \\
+\hline
+\end{tabular}
+\par\vspace{2mm}
+\textbf{Таблица 5.}
+\end{minipage}
+\end{center}
+
+\vspace{10mm}
+
+% Примечание
+\raggedright
+\textbf{Примечание:} $r$ столбцов означает, что соответствующий блок повторяется $r$ раз.
+\end{document}

@@ -1,0 +1,213 @@
+\documentclass[a4paper, landscape]{article}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% НАСТРОЙКИ ШРИФТА
+\setmainfont{Arial} 
+
+% ЦВЕТА ДЛЯ ТАБЛИЦЫ
+\definecolor{s_pink}{RGB}{255, 182, 193}      % s-блок (розовый)
+\definecolor{p_yellow}{RGB}{255, 253, 208}    % p-блок (желтый)
+\definecolor{d_blue}{RGB}{173, 225, 240}      % d-блок (голубой)
+\definecolor{gray_header}{RGB}{240, 240, 240} % серый для заголовков
+
+\begin{document}
+\pagestyle{empty}
+
+% Настройка масштаба: по горизонтали (x) 2.2 см, по вертикали (y) 1.65 см
+\begin{center}
+\begin{tikzpicture}[x=2.2cm, y=1.65cm] 
+
+% ЗАГОЛОВКИ И СЕТКА
+
+
+\draw[fill=white] (0, 0.3) rectangle (10, 0.6); 
+\node at (5, 0.45) {\textbf{ГРУППЫ ЭЛЕМЕНТОВ}};
+
+% Заголовки групп I - VII 
+\foreach \i/\rome in {0/I, 1/II, 2/III, 3/IV, 4/V, 5/VI, 6/VII} {
+    \draw[fill=white] (\i, 0) rectangle (\i+1, 0.3); 
+    \node at (\i+0.5, 0.15) {\textbf{\rome}};  
+}
+
+% Заголовок группы VIII (занимает 3 ячейки) 
+\draw[fill=white] (7, 0) rectangle (10, 0.3);  
+\node at (8.5, 0.15) {\textbf{VIII}};  
+% БОКОВЫЕ КОЛОНКИ (ПЕРИОДЫ И РЯДЫ)
+
+% Заголовки боковых колонок
+\draw[fill=gray_header] (-0.8, 0) rectangle (0, 0.6);
+\node at (-0.4, 0.3) {\scriptsize \textbf{РЯДЫ}};
+
+\draw[fill=gray_header] (-1.5, 0) rectangle (-0.8, 0.6);
+\node at (-1.15, 0.3) {\scriptsize \textbf{ПЕРИОДЫ}};
+
+% Номера рядов (1-10)
+\foreach \row in {1,...,10} {
+    \draw[fill=white] (-0.8, -\row+1) rectangle (0, -\row);
+    \node at (-0.4, -\row+0.5) {\textbf{\Large \row}};
+}
+
+% Номера периодов (1-7)
+\newcommand{\drawPeriod}[3]{
+    \draw[fill=white] (-1.5, #2) rectangle (-0.8, #3);
+    \node at (-1.15, {(#2+#3)/2}) {\textbf{\Huge #1}};
+}
+\drawPeriod{1}{0}{-1}
+\drawPeriod{2}{-1}{-2}
+\drawPeriod{3}{-2}{-3}
+\drawPeriod{4}{-3}{-5}
+\drawPeriod{5}{-5}{-7}
+\drawPeriod{6}{-7}{-9}
+\drawPeriod{7}{-9}{-10}
+
+
+
+% Элемент s/p-блока (розовый/желтый)
+% Номер и масса справа вверху, символ и названия слева
+\newcommand{\elemSP}[8]{ 
+    \draw[fill=#3] (#1, -#2+1) rectangle (#1+1, -#2);
+    % Номер и масса (справа вверху)
+    \node[anchor=north east, inner sep=2pt] at (#1+1, -#2+1) {\textbf{\scriptsize \color{red} #4}};
+    \node[anchor=north east, inner sep=2pt, yshift=-10pt] at (#1+1, -#2+1) {\tiny #8};
+    % Символ и названия (слева)
+    \node[anchor=west] at (#1+0.05, -#2+0.55) {\textbf{\huge #5}};
+    \node[anchor=west] at (#1+0.05, -#2+0.32) {\tiny #6};
+    \node[anchor=west] at (#1+0.05, -#2+0.16) {\scriptsize \textbf{#7}};
+}
+
+% Элемент d-блока (синий)
+% Номер и масса слева вверху, символ и названия справа
+\newcommand{\elemD}[8]{ 
+    \draw[fill=#3] (#1, -#2+1) rectangle (#1+1, -#2);
+    % Номер и масса (слева вверху)
+    \node[anchor=north west, inner sep=2pt] at (#1, -#2+1) {\textbf{\scriptsize \color{red} #4}};
+    \node[anchor=north west, inner sep=2pt, yshift=-10pt] at (#1, -#2+1) {\tiny #8};
+    % Символ и названия (справа)
+    \node[anchor=east] at (#1+0.95, -#2+0.55) {\textbf{\huge #5}};
+    \node[anchor=east] at (#1+0.95, -#2+0.32) {\tiny #6};
+    \node[anchor=east] at (#1+0.95, -#2+0.16) {\scriptsize \textbf{#7}};
+}
+
+% ЗАПОЛНЕНИЕ ТАБЛИЦЫ ЭЛЕМЕНТАМИ
+
+% РЯД 1
+\elemSP{0}{1}{s_pink}{1}{H}{Hydrogenium}{Водород}{1.008}
+\elemSP{7}{1}{s_pink}{2}{He}{Helium}{Гелий}{4.003}
+\node at (4, -0.5) {\textbf{\small ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА}};
+% РЯД 2
+\elemSP{0}{2}{s_pink}{3}{Li}{Lithium}{Литий}{6.94}
+\elemSP{1}{2}{s_pink}{4}{Be}{Beryllium}{Бериллий}{9.01}
+\elemSP{2}{2}{p_yellow}{5}{B}{Borum}{Бор}{10.81}
+\elemSP{3}{2}{p_yellow}{6}{C}{Carboneum}{Углерод}{12.01}
+\elemSP{4}{2}{p_yellow}{7}{N}{Nitrogenium}{Азот}{14.01}
+\elemSP{5}{2}{p_yellow}{8}{O}{Oxigenium}{Кислород}{16.00}
+\elemSP{6}{2}{p_yellow}{9}{F}{Fluorum}{Фтор}{19.00}
+\elemSP{7}{2}{p_yellow}{10}{Ne}{Neon}{Неон}{20.18}
+
+% РЯД 3
+\elemSP{0}{3}{s_pink}{11}{Na}{Natrium}{Натрий}{22.99}
+\elemSP{1}{3}{s_pink}{12}{Mg}{Magnesium}{Магний}{24.31}
+\elemSP{2}{3}{p_yellow}{13}{Al}{Aluminium}{Алюминий}{26.98}
+\elemSP{3}{3}{p_yellow}{14}{Si}{Silicium}{Кремний}{28.09}
+\elemSP{4}{3}{p_yellow}{15}{P}{Phosphorus}{Фосфор}{30.97}
+\elemSP{5}{3}{p_yellow}{16}{S}{Sulfur}{Сера}{32.07}
+\elemSP{6}{3}{p_yellow}{17}{Cl}{Chlorium}{Хлор}{35.45}
+\elemSP{7}{3}{p_yellow}{18}{Ar}{Argon}{Аргон}{39.95}
+
+% РЯД 4
+\elemSP{0}{4}{s_pink}{19}{K}{Kalium}{Калий}{39.10}
+\elemSP{1}{4}{s_pink}{20}{Ca}{Calcium}{Кальций}{40.08}
+\elemD{2}{4}{d_blue}{21}{Sc}{Scandium}{Скандий}{44.96}
+\elemD{3}{4}{d_blue}{22}{Ti}{Titanium}{Титан}{47.87}
+\elemD{4}{4}{d_blue}{23}{V}{Vanadium}{Ванадий}{50.94}
+\elemD{5}{4}{d_blue}{24}{Cr}{Chromium}{Хром}{52.00}
+\elemD{6}{4}{d_blue}{25}{Mn}{Manganum}{Марганец}{54.94}
+\elemD{7}{4}{d_blue}{26}{Fe}{Ferrum}{Железо}{55.8}
+\elemD{8}{4}{d_blue}{27}{Co}{Cobaltum}{Кобальт}{58.9}
+\elemD{9}{4}{d_blue}{28}{Ni}{Niccolum}{Никель}{58.7}
+
+% РЯД 5
+\elemD{0}{5}{d_blue}{29}{Cu}{Cuprum}{Медь}{63.55}
+\elemD{1}{5}{d_blue}{30}{Zn}{Zincum}{Цинк}{65.38}
+\elemSP{2}{5}{p_yellow}{31}{Ga}{Gallium}{Галлий}{69.72}
+\elemSP{3}{5}{p_yellow}{32}{Ge}{Germanium}{Германий}{72.63}
+\elemSP{4}{5}{p_yellow}{33}{As}{Arsenicum}{Мышьяк}{74.92}
+\elemSP{5}{5}{p_yellow}{34}{Se}{Selenium}{Селен}{78.96}
+\elemSP{6}{5}{p_yellow}{35}{Br}{Bromum}{Бром}{79.90}
+\elemSP{7}{5}{p_yellow}{36}{Kr}{Krypton}{Криптон}{83.80}
+% Пустые ячейки в конце ряда 5
+\draw[fill=white] (8, -5+1) rectangle (10, -5);
+
+% РЯД 6
+\elemSP{0}{6}{s_pink}{37}{Rb}{Rubidium}{Рубидий}{85.47}
+\elemSP{1}{6}{s_pink}{38}{Sr}{Strontium}{Стронций}{87.62}
+\elemD{2}{6}{d_blue}{39}{Y}{Yttrium}{Иттрий}{88.91}
+\elemD{3}{6}{d_blue}{40}{Zr}{Zirconium}{Цирконий}{91.22}
+\elemD{4}{6}{d_blue}{41}{Nb}{Niobium}{Ниобий}{92.91}
+\elemD{5}{6}{d_blue}{42}{Mo}{Molybdaenum}{Молибден}{95.96}
+\elemD{6}{6}{d_blue}{43}{Tc}{Technetium}{Технеций}{98.00}
+% Триада элементов: рутений, родий, палладий
+\elemD{7}{6}{d_blue}{44}{Ru}{Ruthenium}{Рутений}{101.1}
+\elemD{8}{6}{d_blue}{45}{Rh}{Rhodium}{Родий}{102.9}
+\elemD{9}{6}{d_blue}{46}{Pd}{Palladium}{Палладий}{106.4}
+
+% РЯД 7
+\elemD{0}{7}{d_blue}{47}{Ag}{Argentum}{Серебро}{107.9}
+\elemD{1}{7}{d_blue}{48}{Cd}{Cadmium}{Кадмий}{112.4}
+\elemSP{2}{7}{p_yellow}{49}{In}{Indium}{Индий}{114.8}
+\elemSP{3}{7}{p_yellow}{50}{Sn}{Stannum}{Олово}{118.7}
+\elemSP{4}{7}{p_yellow}{51}{Sb}{Stibium}{Сурьма}{121.8}
+\elemSP{5}{7}{p_yellow}{52}{Te}{Tellurium}{Теллур}{127.6}
+\elemSP{6}{7}{p_yellow}{53}{I}{Iodum}{Йод}{126.9}
+\elemSP{7}{7}{p_yellow}{54}{Xe}{Xenon}{Ксенон}{131.3}
+% Пустые ячейки в конце ряда 7
+\draw[fill=white] (8, -7+1) rectangle (10, -7);
+
+% РЯД 8
+\elemSP{0}{8}{s_pink}{55}{Cs}{Cesium}{Цезий}{132.9}
+\elemSP{1}{8}{s_pink}{56}{Ba}{Barium}{Барий}{137.3}
+\elemD{2}{8}{d_blue}{57}{La*}{Lanthanum}{Лантан}{138.9}
+\elemD{3}{8}{d_blue}{72}{Hf}{Hafnium}{Гафний}{178.5}
+\elemD{4}{8}{d_blue}{73}{Ta}{Tantalum}{Тантал}{180.9}
+\elemD{5}{8}{d_blue}{74}{W}{Wolframium}{Вольфрам}{183.8}
+\elemD{6}{8}{d_blue}{75}{Re}{Rhenium}{Рений}{186.2}
+% Триада элементов: осмий, иридий, платина
+\elemD{7}{8}{d_blue}{76}{Os}{Osmium}{Осмий}{190.2}
+\elemD{8}{8}{d_blue}{77}{Ir}{Iridium}{Иридий}{192.2}
+\elemD{9}{8}{d_blue}{78}{Pt}{Platinum}{Платина}{195.1}
+
+% РЯД 9
+\elemD{0}{9}{d_blue}{79}{Au}{Aurum}{Золото}{197.0}
+\elemD{1}{9}{d_blue}{80}{Hg}{Hydrargyrum}{Ртуть}{200.6}
+\elemSP{2}{9}{p_yellow}{81}{Tl}{Thallium}{Таллий}{204.4}
+\elemSP{3}{9}{p_yellow}{82}{Pb}{Plumbum}{Свинец}{207.2}
+\elemSP{4}{9}{p_yellow}{83}{Bi}{Bismuthum}{Висмут}{209.0}
+\elemSP{5}{9}{p_yellow}{84}{Po}{Polonium}{Полоний}{209.0}
+\elemSP{6}{9}{p_yellow}{85}{At}{Astatium}{Астат}{210.0}
+\elemSP{7}{9}{p_yellow}{86}{Rn}{Radon}{Радон}{222.0}
+% Пустые ячейки в конце ряда 9
+\draw[fill=white] (8, -9+1) rectangle (10, -9);
+
+% РЯД 10
+\elemSP{0}{10}{s_pink}{87}{Fr}{Francium}{Франций}{223.0}
+\elemSP{1}{10}{s_pink}{88}{Ra}{Radium}{Радий}{226.0}
+\elemD{2}{10}{d_blue}{89}{Ac*}{Actinium}{Актиний}{227.0}
+\elemD{3}{10}{d_blue}{104}{Rf}{Rutherfordium}{Резерфордий}{[267]}
+\elemD{4}{10}{d_blue}{105}{Db}{Dubnium}{Дубний}{[268]}
+\elemD{5}{10}{d_blue}{106}{Sg}{Seaborgium}{Сиборгий}{[269]}
+\elemD{6}{10}{d_blue}{107}{Bh}{Bohrium}{Борий}{[270]}
+% Триада элементов: хассий, мейтнерий, дармштадтий
+\elemD{7}{10}{d_blue}{108}{Hs}{Hassium}{Хасий}{{[269]}}
+\elemD{8}{10}{d_blue}{109}{Mt}{Meitnerium}{Мейтнерий}{{[278]}}
+\elemD{9}{10}{d_blue}{110}{Ds}{Darmstadtium}{Дармштадтий}{{[281]}}
+
+% ВНЕШНЯЯ РАМКА ВОКРУГ ВСЕЙ ТАБЛИЦЫ
+\draw[line width=1pt] (-1.5, 0.6) rectangle (10, -10);
+
+\end{tikzpicture}
+\end{center}
+\end{document}
